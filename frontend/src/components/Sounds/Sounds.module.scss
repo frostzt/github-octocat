@@ -1,0 +1,62 @@
+@import "../../styles/animations.scss";
+
+.container {
+  padding-top: 10rem;
+  text-align: center;
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .imageContainer {
+      width: 100rem;
+      height: auto;
+
+      &__image {
+        width: 100%;
+        height: auto;
+        animation: slowFloat 12s infinite ease-in-out;
+      }
+    }
+
+    .buttons {
+      font-size: 4rem;
+      color: var(--background-color);
+
+      & > *:not(:last-child) {
+        margin-bottom: 10rem;
+      }
+
+      &__container {
+        display: flex;
+        align-items: center;
+
+        &__btn {
+          width: 6rem;
+          height: 6rem;
+          display: flex;
+          cursor: pointer;
+          border-radius: 1rem;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--default-text-color);
+        }
+
+        &__desc {
+          margin-left: 3rem;
+          color: var(--default-text-color);
+        }
+      }
+    }
+  }
+}
+
+.toggle {
+  color: var(--default-text-color);
+  background-image: var(--background-gradient);
+}
