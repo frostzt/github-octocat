@@ -1,0 +1,11 @@
+@keyframes slowFloat {
+  0% {
+    transform: translateY(0rem);
+  }
+  60% {
+    transform: translateY(-5rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}

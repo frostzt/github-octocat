@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Header.module.scss";
 
+// Images
+import Box from "./box.png";
 import Notepad from "./notepad.png";
 
 // Components
@@ -23,6 +25,9 @@ const Header = () => {
         </div>
         <div className={styles.imageContainer}>
           <img className={styles.imageContainer__image} src={Notepad} alt="Notepad" />
+          <img className={styles.imageContainer__box} id={styles.box_1} src={Box} alt="Box" />
+          <img className={styles.imageContainer__box} id={styles.box_2} src={Box} alt="Box" />
+          <img className={styles.imageContainer__box} id={styles.box_3} src={Box} alt="Box" />
         </div>
       </div>
     </div>

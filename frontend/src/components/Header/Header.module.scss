@@ -1,4 +1,8 @@
+@import "../../styles/animations.scss";
+
 .container {
+  margin-bottom: 25rem;
+
   .logo {
     margin: 7rem 0 0 8rem;
 
@@ -10,7 +14,7 @@
 
   .maintext {
     display: flex;
-    padding: 3rem 0;
+    padding: 5rem 0;
     align-items: center;
     justify-content: space-evenly;
 
@@ -32,10 +36,34 @@
     .imageContainer {
       width: 50rem;
       height: auto;
+      position: relative;
 
       &__image {
         width: 100%;
         height: auto;
+        animation: slowFloat 8s ease-in-out infinite;
+      }
+
+      &__box {
+        width: 6rem;
+        height: auto;
+        position: absolute;
+      }
+
+      #box_1 {
+        left: 15%;
+        bottom: 10%;
+        animation: slowFloat 6s ease-in-out 0.3s infinite;
+      }
+
+      #box_2 {
+        animation: slowFloat 8s ease-in-out 0.1s infinite;
+      }
+
+      #box_3 {
+        right: 0;
+        bottom: 20%;
+        animation: slowFloat 10s ease-in-out 0.2s infinite;
       }
     }
   }
