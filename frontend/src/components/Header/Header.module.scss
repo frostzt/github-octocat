@@ -1,0 +1,42 @@
+.container {
+  .logo {
+    margin: 7rem 0 0 8rem;
+
+    &__text {
+      font-size: 3.2rem;
+      font-weight: 900;
+    }
+  }
+
+  .maintext {
+    display: flex;
+    padding: 3rem 0;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .heading {
+      font-size: 9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+
+      &__span {
+        font-weight: 300;
+      }
+    }
+
+    &__btn {
+      margin-top: 3rem;
+      user-select: none;
+    }
+
+    .imageContainer {
+      width: 50rem;
+      height: auto;
+
+      &__image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

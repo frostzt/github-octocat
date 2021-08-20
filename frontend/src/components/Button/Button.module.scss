@@ -1,0 +1,18 @@
+.container {
+  cursor: pointer;
+  font-size: 3rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 2.5rem 5.5rem;
+  border-radius: 0.2rem;
+  transition: all 0.3s;
+  color: var(--background-color);
+  border: 1px solid var(--default-text-color);
+  background-color: var(--default-text-color);
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: transparent;
+    color: var(--default-text-color);
+  }
+}

@@ -1,12 +1,12 @@
-import Test from "./components/test/test";
-
 import styles from "./styles/app.module.scss";
+
+// Components
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (
     <div className="App">
-      <h1 className={styles.title}>Hello there!</h1>
-      <Test />
+      <Header />
     </div>
   );
 };
