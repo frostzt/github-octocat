@@ -9,7 +9,7 @@ import { FOCUS_ALL_SONGS, RELAX_ALL_SONGS } from "./AllSongs";
 import cx from "classnames";
 import styles from "./Pomodoro.module.scss";
 
-const Pomodoro = () => {
+const Pomodoro = ({ start, changeStart }) => {
   const audioRef = useRef();
 
   // States
@@ -17,7 +17,6 @@ const Pomodoro = () => {
   const [secs, setSecs] = useState(0);
   const [focMin, setFocMin] = useState(0);
   const [relMin, setRelMin] = useState(0);
-  const [start, setStart] = useState(false);
   const [isFocusing, setIsFocusing] = useState(true);
 
   // Audio Player
@@ -37,7 +36,7 @@ const Pomodoro = () => {
       } else {
         audioRef.current.play();
       }
-      setStart((prevState) => !prevState);
+      changeStart();
     }
   };
 
@@ -66,8 +65,8 @@ const Pomodoro = () => {
             setIsFocusing(!isFocusing);
 
             // Reinitialize
-            setStart(false);
-            setStart(true);
+            changeStart();
+            changeStart();
           }
         } else {
           setSecs(secs - 1);
@@ -84,7 +83,7 @@ const Pomodoro = () => {
   return (
     <Fragment>
       <div className={styles.player}>
-        <audio ref={audioRef} src={focusAllTracks[0].url} type="audio/mp3" controls></audio>
+        <audio className={styles.player__player} ref={audioRef} src={focusAllTracks[0].url} type="audio/mp3" controls />
       </div>
       <div className={styles.container}>
         {start ? null : <div className={styles.title}>Set your timer</div>}

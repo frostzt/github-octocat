@@ -1,0 +1,11 @@
+.container {
+  top: 62%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+
+  .title {
+    font-size: 2rem;
+    display: inline-block;
+  }
+}
