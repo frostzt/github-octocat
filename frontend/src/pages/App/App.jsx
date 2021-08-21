@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
+// Components
 import Pomodoro from "../../components/Pomodoro/Pomodoro";
+import AccountBar from "../../components/Account/AccountBar/AccountBar";
 import QuoteGenerator from "../../components/QuoteGenerator/QuoteGenerator";
 
 // Styling
@@ -15,6 +18,7 @@ const AppPage = () => {
 
   return (
     <div className={styles.container}>
+      <AccountBar />
       {start ? <QuoteGenerator /> : null}
       <Pomodoro start={start} changeStart={changeStart} />
     </div>

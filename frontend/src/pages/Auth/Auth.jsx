@@ -2,9 +2,6 @@ import { Redirect } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import AuthContext from "../../contexts/user.context";
 
-// Styling
-import styles from "./Auth.module.scss";
-
 // Components
 import SignUp from "../../components/Auth/Signup/SignUp";
 import SignIn from "../../components/Auth/SignIn/SignIn";
@@ -24,11 +21,7 @@ const Auth = () => {
     setSigningIn((prev) => !prev);
   };
 
-  return (
-    <div className={styles.container}>
-      {signingIn ? <SignIn switchState={switchState} /> : <SignUp switchState={switchState} />}
-    </div>
-  );
+  return <div>{signingIn ? <SignIn switchState={switchState} /> : <SignUp switchState={switchState} />}</div>;
 };
 
 export default Auth;

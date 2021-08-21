@@ -1,0 +1,45 @@
+.container {
+  width: 100%;
+
+  .login {
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.3s;
+    margin: 5rem 0 0 5rem;
+    display: inline-block;
+    color: var(--default-text-color);
+    background-image: var(--background-gradient);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .user {
+    font-size: 2rem;
+    display: inline-block;
+    margin: 5rem 0 0 5rem;
+  }
+
+  .alltasks {
+    cursor: pointer;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    transition: all 0.3s;
+    margin: 5rem 0 0 5rem;
+    display: inline-block;
+    color: var(--default-text-color);
+    background-image: var(--background-gradient);
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

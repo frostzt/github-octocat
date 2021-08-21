@@ -93,7 +93,14 @@ const Pomodoro = ({ start, changeStart }) => {
     <Fragment>
       <Toaster />
       <div className={styles.player}>
-        <audio className={styles.player__player} ref={audioRef} src={focusAllTracks[0].url} type="audio/mp3" controls />
+        <audio
+          className={styles.player__player}
+          ref={audioRef}
+          src={focusAllTracks[0].url}
+          type="audio/mp3"
+          controls
+          loop
+        />
       </div>
       <div className={styles.container}>
         <div className={styles.title}>{start ? (isFocusing ? "Focus" : "Relax") : "Set your timer"}</div>
