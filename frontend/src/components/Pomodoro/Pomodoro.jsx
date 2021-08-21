@@ -54,6 +54,15 @@ const Pomodoro = () => {
           } else {
             const newMinutes = isFocusing ? relMin : focMin;
             setMin(newMinutes);
+
+            if (isFocusing) {
+              audioRef.current.src = relaxAllTracks[0].url;
+              audioRef.current.play();
+            } else {
+              audioRef.current.src = focusAllTracks[0].url;
+              audioRef.current.play();
+            }
+
             setIsFocusing(!isFocusing);
 
             // Reinitialize
