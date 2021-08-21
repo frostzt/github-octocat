@@ -2,12 +2,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { createContext, useState, useEffect } from "react";
 
-const ENDPOINT = "http://localhost:4000/api/v1/users";
+const ENDPOINT = "http://localhost:4000/api/v1";
 
 const AuthContext = createContext({
   user: undefined,
   signUp: (event, creds) => {},
   signIn: (event, creds) => {},
+  createTask: () => {},
 });
 
 export const AuthContextProvider = ({ children }) => {
@@ -16,7 +17,13 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      const user = JSON.parse(savedUser);
+      axios
+        .post(`${ENDPOINT}/users/get`, { email: user.email })
+        .then((res) => {
+          setUser(res.data.user[0]);
+        })
+        .catch((error) => console.error(error));
     } else {
       setUser(undefined);
     }
@@ -28,7 +35,7 @@ export const AuthContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        ENDPOINT,
+        `${ENDPOINT}/users`,
         { name, email, password },
         {
           headers: {
@@ -51,7 +58,7 @@ export const AuthContextProvider = ({ children }) => {
 
     try {
       const response = await axios.post(
-        `${ENDPOINT}/auth`,
+        `${ENDPOINT}/users/auth`,
         { email, password },
         {
           headers: {
@@ -68,7 +75,20 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
-  return <AuthContext.Provider value={{ user, signUp, signIn }}>{children}</AuthContext.Provider>;
+  const createTask = async (event, title) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(`${ENDPOINT}/tasks/create`, { email: user.email, title });
+      setUser(response.data.user);
+      localStorage.setItem("user", JSON.stringify(response.data.user));
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message);
+    }
+  };
+
+  return <AuthContext.Provider value={{ user, signUp, signIn, createTask }}>{children}</AuthContext.Provider>;
 };
 
 export default AuthContext;

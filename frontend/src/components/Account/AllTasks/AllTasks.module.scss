@@ -3,11 +3,36 @@
   left: 50%;
   width: 90%;
   height: 90%;
+  padding: 5rem;
   position: absolute;
   border-radius: 1rem;
   z-index: 99999999999;
   transform: translate(-50%, -50%);
   background-color: var(--default-text-color);
+
+  .list {
+    overflow-y: auto;
+
+    & > *:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .creator {
+    bottom: 5%;
+    display: flex;
+    position: absolute;
+    justify-content: space-around;
+
+    .btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 0.5rem 2rem;
+      color: var(--default-text-color);
+      background-color: var(--background-color);
+    }
+  }
 }
 
 .fallback {

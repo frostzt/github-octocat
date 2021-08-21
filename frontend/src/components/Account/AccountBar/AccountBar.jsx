@@ -13,7 +13,7 @@ import AllTasks from "../AllTasks/AllTasks";
 const AccountBar = () => {
   const [showTasks, setShowTasks] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, createTask } = useContext(AuthContext);
 
   const switchStates = () => {
     setShowTasks((prev) => !prev);
@@ -21,7 +21,7 @@ const AccountBar = () => {
 
   return (
     <Fragment>
-      {showTasks ? <AllTasks switchStates={switchStates} /> : null}
+      {showTasks ? <AllTasks user={user} createTask={createTask} switchStates={switchStates} /> : null}
       <div className={styles.container}>
         {!user && (
           <Link style={{ textDecoration: "none", display: "inline-block" }} to="/auth">
