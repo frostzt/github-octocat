@@ -15,3 +15,9 @@
     transform: scale(1.1);
   }
 }
+
+.selected {
+  color: var(--default-text-color);
+  background-color: none !important;
+  background-image: var(--background-gradient) !important;
+}

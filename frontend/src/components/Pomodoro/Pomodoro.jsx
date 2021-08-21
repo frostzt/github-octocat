@@ -5,6 +5,7 @@ import Timers from "../Timers/Timers";
 import { ActivateButton } from "../Button/Button";
 
 // Styling
+import cx from "classnames";
 import styles from "./Pomodoro.module.scss";
 
 const Pomodoro = () => {
@@ -58,7 +59,7 @@ const Pomodoro = () => {
   return (
     <div className={styles.container}>
       {start ? null : <div className={styles.title}>Set your timer</div>}
-      <div className={styles.counter}>
+      <div className={cx([styles.counter, start ? styles.started : null])}>
         {showMin}:{showSecs}
       </div>
       {start ? null : (
@@ -66,26 +67,26 @@ const Pomodoro = () => {
           <h3 className={styles.selectors__heading}>Focus Time</h3>
           <div className={styles.selectors__focus}>
             <div onClick={() => assignMins(25)}>
-              <Timers min={25} />
+              <Timers isSelected={min === 25 ? true : false} min={25} />
             </div>
             <div onClick={() => assignMins(30)}>
-              <Timers min={30} />
+              <Timers isSelected={min === 30 ? true : false} min={30} />
             </div>
             <div onClick={() => assignMins(45)}>
-              <Timers min={45} />
+              <Timers isSelected={min === 45 ? true : false} min={45} />
             </div>
           </div>
           <div className={styles.selectors__relax}>
             <h3 className={styles.selectors__heading}>Relax Time</h3>
             <div className={styles.selectors__focus}>
               <div onClick={() => setRelMin(5)}>
-                <Timers min={5} />
+                <Timers isSelected={relMin === 5 ? true : false} min={5} />
               </div>
               <div onClick={() => setRelMin(10)}>
-                <Timers min={10} />
+                <Timers isSelected={relMin === 10 ? true : false} min={10} />
               </div>
               <div onClick={() => setRelMin(15)}>
-                <Timers min={15} />
+                <Timers isSelected={relMin === 15 ? true : false} min={15} />
               </div>
             </div>
           </div>
