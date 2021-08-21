@@ -74,6 +74,7 @@ const Pomodoro = () => {
         }
       }, 1000);
     }
+    // eslint-disable-next-line
   }, [secs, start]);
 
   // Convert the strings to right format
