@@ -28,7 +28,9 @@ const Header = () => {
             <span className={styles.heading__span}>just made smarter</span>
           </motion.h1>
           <motion.div variants={childrenVarient}>
-            <Button extraClasses={styles.maintext__btn}>Get Started</Button>
+            <Button to="/app" extraClasses={styles.maintext__btn}>
+              Get Started
+            </Button>
           </motion.div>
         </motion.div>
         <motion.div variants={childrenVarient} className={styles.imageContainer}>

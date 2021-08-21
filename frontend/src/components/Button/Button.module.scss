@@ -16,3 +16,11 @@
     color: var(--default-text-color);
   }
 }
+
+.wrapper {
+  display: inline-block;
+
+  .link {
+    text-decoration: none;
+  }
+}
