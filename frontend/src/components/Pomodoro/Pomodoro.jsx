@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment, useRef } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 // Components
 import Timers from "../Timers/Timers";
@@ -37,6 +38,12 @@ const Pomodoro = ({ start, changeStart }) => {
         audioRef.current.play();
       }
       changeStart();
+    } else {
+      toast.error("Please choose a valid Focus and Relax time!", {
+        style: {
+          fontSize: "2rem",
+        },
+      });
     }
   };
 
@@ -56,8 +63,10 @@ const Pomodoro = ({ start, changeStart }) => {
 
             if (isFocusing) {
               audioRef.current.src = relaxAllTracks[0].url;
+              toast("Enough working, relax!", { style: { fontSize: "2rem" } });
               audioRef.current.play();
             } else {
+              toast("Well, back to work I guess!", { style: { fontSize: "2rem" } });
               audioRef.current.src = focusAllTracks[0].url;
               audioRef.current.play();
             }
@@ -82,11 +91,12 @@ const Pomodoro = ({ start, changeStart }) => {
 
   return (
     <Fragment>
+      <Toaster />
       <div className={styles.player}>
         <audio className={styles.player__player} ref={audioRef} src={focusAllTracks[0].url} type="audio/mp3" controls />
       </div>
       <div className={styles.container}>
-        {start ? null : <div className={styles.title}>Set your timer</div>}
+        <div className={styles.title}>{start ? (isFocusing ? "Focus" : "Relax") : "Set your timer"}</div>
         <div className={cx([styles.counter, start ? styles.started : null])}>
           {showMin}:{showSecs}
         </div>
