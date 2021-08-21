@@ -6,6 +6,7 @@ const { check, validationResult } = require("express-validator");
 
 const router = express.Router();
 
+// Register User
 router.post(
   "/",
   [
@@ -43,10 +44,8 @@ router.post(
       };
 
       // Sign and send token
-      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: 36000 }, (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      });
+      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: 36000 });
+      res.status(200).json({ user: newUser });
     } catch (error) {
       console.error(error);
       res.status(500).json({ errors: [{ msg: "Whoops! Looks like something is wrong from our side!" }] });
@@ -54,6 +53,7 @@ router.post(
   }
 );
 
+// Sign in
 router.post(
   "/auth",
   [check("email", "Please include a valid email").isEmail(), check("password", "Password is required").exists()],
@@ -85,10 +85,8 @@ router.post(
         },
       };
 
-      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: 360000 }, (err, token) => {
-        if (err) throw err;
-        res.json({ token });
-      });
+      jwt.sign(payload, process.env.JWTSECRET, { expiresIn: 360000 });
+      res.status(200).json({ user });
     } catch (error) {
       console.error(error);
       res.status(500).json({ errors: [{ msg: "Whoops! Looks like something is wrong from our side!" }] });
