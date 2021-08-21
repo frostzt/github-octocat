@@ -11,8 +11,6 @@ const Auth = () => {
 
   const { user } = useContext(AuthContext);
 
-  console.log(user);
-
   if (user) {
     return <Redirect to="/app" />;
   }

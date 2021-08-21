@@ -2,7 +2,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { createContext, useState, useEffect } from "react";
 
-const ENDPOINT = "http://localhost:4000/api/v1";
+const ENDPOINT = "https://octotime.herokuapp.com/api/v1";
 
 const AuthContext = createContext({
   user: undefined,
