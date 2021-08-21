@@ -94,20 +94,14 @@ router.post(
   }
 );
 
-router.get("/", async (req, res) => {
-  // Get token from header
-  const token = req.header("x-auth-token");
+router.post("/get", async (req, res) => {
+  const { email } = req.body;
 
-  // Check if not token
-  if (!token) {
-    return res.status(401).json({ msg: "No token, authorization denied!" });
-  }
-
-  // Verify token
   try {
-    const decoded = jwt.verify(token, process.env.JWTSECRET);
-    req.user = decoded.user;
-    const user = await User.findById(decoded.user.id).select("-password");
+    const user = await User.find({ email }).select("-password");
+    if (!user) {
+      return res.status(401).json({ msg: "Either not valid or not found!" });
+    }
     res.status(200).json({ user });
   } catch (err) {
     res.status(401).json({ msg: "Token is not valid!" });

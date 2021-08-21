@@ -14,6 +14,12 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  tasks: [
+    {
+      id: "",
+      title: String,
+    },
+  ],
 });
 
 module.exports = User = mongoose.model("user", UserSchema);
