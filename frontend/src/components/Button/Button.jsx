@@ -14,4 +14,12 @@ const Button = ({ children, extraClasses, to }) => {
   );
 };
 
+export const ActivateButton = ({ children, extraClasses, handler }) => {
+  return (
+    <div onClick={handler} className={styles.wrapper}>
+      <div className={cx([styles.container, extraClasses ? extraClasses : null])}>{children}</div>
+    </div>
+  );
+};
+
 export default Button;

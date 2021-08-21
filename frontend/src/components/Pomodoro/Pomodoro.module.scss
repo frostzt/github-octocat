@@ -1,0 +1,37 @@
+.container {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .counter {
+    font-size: 15rem;
+    color: var(--default-text-color);
+  }
+
+  .selectors {
+    &__heading {
+      font-size: 3rem;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+    }
+
+    &__focus {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .btn {
+    margin-top: 5rem;
+    height: 5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
