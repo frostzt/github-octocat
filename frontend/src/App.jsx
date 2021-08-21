@@ -1,14 +1,13 @@
-// Components
-import Header from "./components/Header/Header";
-import Features from "./components/Features/Features";
-import Sounds from "./components/Sounds/Sounds";
+import { Switch, Route } from "react-router-dom";
+
+import Homepage from "./pages/Homepage/Homepage";
 
 const App = () => {
   return (
     <div className="App">
-      <Header />
-      <Features />
-      <Sounds />
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+      </Switch>
     </div>
   );
 };
